@@ -11,13 +11,14 @@ function switchPlayer() {
 }
 
 function getClick() {
+    let winnerInfo = document.getElementById('winner-info');
     cell.forEach(function(cell) {
         cell.addEventListener('click', function() {
             if (cell.innerHTML === '') {
                 updateBoard(cell, currentPlayer);
                 const winInfo = checkWin(currentPlayer);
                 if (winInfo) {
-                    alert(`Player ${currentPlayer} wins with ${winInfo}`);
+                    winnerInfo.innerHTML = `Player ${currentPlayer} wins with ${winInfo}`;
                     resetBoard();
                 } else {
                     switchPlayer();
